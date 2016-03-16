@@ -1,0 +1,66 @@
+<h1>String</h1>
+
+strlen: get the length of a string
+<pre>
+#include <string.h>
+char str[64];
+strcpy(str, “this is a test.”);
+printf(“%d”, strlen(str)); /* get 15 */
+</pre>
+
+strcmp: compare two strings
+<pre>
+#include <string.h>
+strcmp(str1,str2)
+/*
+ * <0: str1 < str2
+ * >0: str1 > str2
+ * =0: str1 = str2
+ * notice that if(-1)=true, if(1)=true, if(0)=false
+ * that’s why we usually use if(!strcmp(str1,str2))
+ */
+</pre>
+
+strcpy: assign string to a character array and automatically append a ‘\0’
+<pre>
+#include <string.h>
+char str[3+1]; /* last one is for ‘\0’ */
+strcpy(str, “abc”);
+</pre>
+
+strcat: cast two strings together
+<pre>
+#include <string.h>
+char str[64];
+strcpy(str, “hello,”);
+strcat(str, “this is a test.”);
+</pre>
+
+strchr: locate the 1st occurrence of a character
+<pre>
+#include <string.h>
+char str[] = “This is a test.”;
+char *pointer;
+pointer = strchr(str, ‘a’);
+while(pointer!=NULL) {
+	/*
+	 * the target’s position = pointer-str+1
+	 * suppose &str = 20, &pointer = 23,
+	 * then the target character will be at 23-20+1=4th bit
+	 */
+}
+</pre>
+
+strtok: split string into tokens
+<pre>
+char str[] = “this, is. a-test”;
+char* pointer;
+pointer = strtok(str, “ ,.-”);
+while(pointer!=NULL) {
+	/*
+	 * you will get: “this”, “is”, “a”, “test” in the pointer
+	 * all the characters in “ ,.-” will be eliminated
+	 */
+pointer = strtok(NULL, “ ,.-”);
+}
+</pre>

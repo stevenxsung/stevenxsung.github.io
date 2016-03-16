@@ -1,0 +1,63 @@
+<h1>Git</h1>
+
+<h2>Setup</h2>
+
+<h3>config</h3>
+<pre>
+git help config
+git config --global user.name "Some Name"
+git config --global user.email "your@email.here"
+git config --global core.editor vim
+git config --list
+</pre>
+
+<h2>Getting Started</h2>
+
+<h3>basic</h3>
+<pre>
+git init
+git clone https://host.name/path repo_name
+git clone user@host.name:path/to/repo.git
+git pull
+git status
+</pre>
+
+<h3>commit</h3>
+<pre>
+git add *
+git commit
+git push
+</pre>
+
+<h3>reset changes</h3>
+<pre>
+git reset *
+git checkout *
+git pull
+</pre>
+
+<h2>Useful Tips</h2>
+
+<h3>discard commit</h3>
+<pre>
+git reset HEAD^
+git status
+git log
+</pre>
+
+<h3>change remote server</h3>
+<pre>
+git remote -v
+git remote set-url origin some_url
+git remote add some_head some_url
+git remote -v
+git pull some_head some_branch
+</pre>
+
+<h3>cherry-pick</h3>
+<pre>
+git checkout some_branch
+git branch
+git cherry-pick your_commit_id
+git push
+</pre>

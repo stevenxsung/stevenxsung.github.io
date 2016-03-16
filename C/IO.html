@@ -1,0 +1,72 @@
+<h1>IO</h1>
+
+<pre>
+int main(int argc, char *argv[]) {
+	/*
+	 * argc=1: ./some.o <- will be regarded as the 1st argument
+	 * ex: ./some.o input1 input2
+	 * argc[0] = "./some.o", argc[1] = "input1", argc[2] = "input2"
+	 */
+	if(argc>1) {
+		/* means something input */
+	}
+}
+</pre>
+
+printf: print outputs ( ‘_’ means space )
+<pre>
+#include <stdio.h>
+printf(“%6d”,1234);  /* _ _ 1 2 3 4 */
+printf(“%-6d”,1234); /* 1 2 3 4 _ _ */
+printf(“%06d”,1234); /* 0 0 1 2 3 4 , but “%+6d” doesn’t show + + 1 2 3 4 */
+</pre>
+
+snprintf: print formatted outputs
+<pre>
+#include <stdio.h>
+char buffer[256];
+int a = 1;
+int b = 2;
+snprintf(buffer, sizeof(buffer), “let’s print number here %d and here %d”, a, b);
+puts(buffer);
+</pre>
+
+puts: write string to stdout
+<pre>
+#include <stdio.h>
+char string[] = “Whatup”;
+puts(string);
+/*
+ * the difference between puts() and printf() is that
+ * the former automatically appends a newline
+ */
+</pre>
+
+fputs: write string to stream (append)
+<pre>
+#include <stdio.h>
+FILE *file;
+char input[64];
+/*
+ * gets(buffer) can also read string from stdin but it is dangerous
+ * since it doesn’t know how big the buffer is
+ * instead, fgets() needs the buffer size as the second input argument
+ */
+text = fgets(input, sizeof(input), stdin);
+file = fopen(“new_file.txt”, “a”);
+fputs(input,file);
+fclose(file);
+</pre>
+
+popen: read output from a command
+<pre>
+#include <stdlib.h>
+FILE *pointer;
+char buffer[64];
+pointer = popen(“command_here”, “r”);
+if(pointer==NULL) /* fail */
+while(fgets(buffer, sizeof(buffer)-1, pointer)!=NULL) {
+	/* print the buffer’s contents */
+}
+pclose(pointer);
+</pre>

@@ -1,0 +1,9 @@
+<h1>Storage</h1>
+
+<pre>
+lshw -C disk
+cat /proc/partition
+fdisk /dev/your_device
+mkfs.ext3 /dev/your_device
+mount -t ext3 /dev/your_partition /some/dir
+</pre>

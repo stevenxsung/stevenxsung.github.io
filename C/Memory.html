@@ -1,0 +1,34 @@
+<h1>IO</h1>
+
+memset: set block of memory
+<pre>
+#include <string.h>
+char str[1024];
+memset(str, ‘\0’, sizeof(str));
+</pre>
+
+memmove: move block of memory
+<pre>
+#include <string.h>
+char str[] = “0123456789?!”;
+memmove(str+5, str+10, 2);
+/*
+ * memmove(destination, source, length)
+ * str is now “01234?!789?!”
+ */
+</pre>
+
+malloc: allocate memory block
+<pre>
+#include <stdlib.h>
+char* buffer = NULL;
+buffer = (char*) malloc(10);
+free(buffer);
+</pre>
+
+realloc: changes the size of the memory block
+<pre>
+#include <stdlib.h>
+char* buffer = NULL;
+buffer = (char*) realloc();
+</pre>
